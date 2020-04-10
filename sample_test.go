@@ -24,15 +24,15 @@ func TestSay_testify(t *testing.T) {
 // IntClosedRange構造体を新しく生成するための関数のテスト
 func TestNewValidIntClosedRange(t *testing.T) {
 	expected := IntClosedRange{
-		upper: 1,
-		lower: 3,
+		upper: 3,
+		lower: 1,
 	}
-	intClosedRange := NewIntClosedRange(1, 3)
+	intClosedRange, _ := NewIntClosedRange(3, 1)
 	assert.Equal(t, intClosedRange, expected)
 }
 
 func TestNewInvalidIntClosedRange(t *testing.T) {
 	expected := errors.New("err: uppper < lower")
-	_, err := NewIntClosedRange(3, 1)
+	_, err := NewIntClosedRange(1, 3)
 	assert.Equal(t, err, expected)
 }

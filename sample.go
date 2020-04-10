@@ -1,5 +1,9 @@
 package tddbc
 
+import (
+	"errors"
+)
+
 func Say(greeting string) string {
 	return greeting + " TDD BootCamp!!"
 }
@@ -26,9 +30,15 @@ type IntClosedRange struct {
 	lower int
 }
 
-func NewIntClosedRange(upper, lower int) IntClosedRange {
+func NewIntClosedRange(upper, lower int) (IntClosedRange, error) {
+	if upper < lower {
+		return IntClosedRange{
+			upper: upper,
+			lower: lower,
+		}, errors.New("err: uppper < lower")
+	}
 	return IntClosedRange{
 		upper: upper,
 		lower: lower,
-	}
+	}, nil
 }
