@@ -1,8 +1,9 @@
 package tddbc
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSay(t *testing.T) {
@@ -17,4 +18,14 @@ func TestSay(t *testing.T) {
 func TestSay_testify(t *testing.T) {
 	actual := Say("Hello!")
 	assert.Equal(t, "Hello! TDD BootCamp!!", actual, "they should be equal")
+}
+
+// IntClosedRange構造体を新しく生成するための関数のテスト
+func TestNewIntClosedRange(t *testing.T) {
+	expected := IntClosedRange{
+		upper: 1,
+		lower: 3,
+	}
+	intClosedRange := NewIntClosedRange(1, 3)
+	assert.Equal(expected, intClosedRange)
 }
