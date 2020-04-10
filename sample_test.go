@@ -27,5 +27,5 @@ func TestNewIntClosedRange(t *testing.T) {
 		lower: 3,
 	}
 	intClosedRange := NewIntClosedRange(1, 3)
-	assert.Equal(expected, intClosedRange)
+	assert.Equal(t, expected, intClosedRange)
 }

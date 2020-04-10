@@ -19,3 +19,15 @@ func Say(greeting string) string {
 // - 上端点より下端点が大きい閉区間を作ることはできないようにする
 // - 整数の閉区間は指定した整数を含むかどうかを判定する関数の実装
 // - 別の閉区間と等価かどうかや、完全に含まれるかどうかも判定できる関数の実装
+
+type IntClosedRange struct {
+	upper int
+	lower int
+}
+
+func NewIntClosedRange(upper, lower int) IntClosedRange {
+	return IntClosedRange{
+		upper: 1,
+		lower: 3,
+	}
+}
