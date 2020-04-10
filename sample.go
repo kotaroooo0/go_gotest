@@ -31,14 +31,12 @@ type IntClosedRange struct {
 }
 
 func NewIntClosedRange(upper, lower int) (IntClosedRange, error) {
-	if upper < lower {
-		return IntClosedRange{
-			upper: upper,
-			lower: lower,
-		}, errors.New("err: uppper < lower")
-	}
-	return IntClosedRange{
+	intClosedRange := IntClosedRange{
 		upper: upper,
 		lower: lower,
-	}, nil
+	}
+	if upper < lower {
+		return intClosedRange, errors.New("err: uppper < lower")
+	}
+	return intClosedRange, nil
 }
