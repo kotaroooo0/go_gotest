@@ -25,6 +25,10 @@ func Say(greeting string) string {
 // - 文字列表現を返すメソッドを実装
 // 	 - 下端点 3, 上端点 8 の整数閉区間の文字列表記は "[3,8]"
 // - 整数の閉区間は指定した整数を含むかどうかを判定する関数の実装
+// 	 - "[3,8]"で3は含む
+// 	 - "[3,8]"で8は含む
+// 	 - "[3,8]"で2は含まない
+// 	 - "[3,8]"で9は含まない
 // - 別の閉区間と等価かどうかや、完全に含まれるかどうかも判定できる関数の実装
 
 type IntClosedRange struct {
@@ -45,4 +49,8 @@ func NewIntClosedRange(upper, lower int) (IntClosedRange, error) {
 
 func (p IntClosedRange) ToString() string {
 	return "[" + strconv.Itoa(p.lower) + "," + strconv.Itoa(p.upper) + "]"
+}
+
+func (p IntClosedRange) Include(n int) bool {
+	return true
 }

@@ -43,3 +43,23 @@ func TestToString(t *testing.T) {
 	toString := intClosedRange.ToString()
 	assert.Equal(t, toString, expected)
 }
+
+func TestIncludeTooLow(t *testing.T) {
+	intClosedRange, _ := NewIntClosedRange(8, 3)
+	assert.Equal(t, intClosedRange.Include(2), false)
+}
+
+func TestIncludeLimitLow(t *testing.T) {
+	intClosedRange, _ := NewIntClosedRange(8, 3)
+	assert.Equal(t, intClosedRange.Include(3), true)
+}
+
+func TestIncludeLimitUp(t *testing.T) {
+	intClosedRange, _ := NewIntClosedRange(8, 3)
+	assert.Equal(t, intClosedRange.Include(8), true)
+}
+
+func TestIncludeTooUp(t *testing.T) {
+	intClosedRange, _ := NewIntClosedRange(8, 3)
+	assert.Equal(t, intClosedRange.Include(9), false)
+}
