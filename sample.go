@@ -27,7 +27,7 @@ type IntClosedRange struct {
 
 func NewIntClosedRange(upper, lower int) IntClosedRange {
 	return IntClosedRange{
-		upper: 1,
-		lower: 3,
+		upper: upper,
+		lower: lower,
 	}
 }
