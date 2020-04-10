@@ -22,6 +22,7 @@ func Say(greeting string) string {
 // - 上端点より下端点が大きい閉区間を作ることはできないようにする
 // 	 - 引数で上限と下限の関係が不適であればエラーを返す
 // - 文字列表現を返すメソッドを実装
+// 	 - 下端点 3, 上端点 8 の整数閉区間の文字列表記は "[3,8]"
 // - 整数の閉区間は指定した整数を含むかどうかを判定する関数の実装
 // - 別の閉区間と等価かどうかや、完全に含まれるかどうかも判定できる関数の実装
 
@@ -39,4 +40,8 @@ func NewIntClosedRange(upper, lower int) (IntClosedRange, error) {
 		return intClosedRange, errors.New("err: uppper < lower")
 	}
 	return intClosedRange, nil
+}
+
+func (p IntClosedRange) ToString() [2]string {
+	return [2]string{"-1", "-2"}
 }

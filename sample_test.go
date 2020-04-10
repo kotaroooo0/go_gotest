@@ -36,3 +36,10 @@ func TestNewInvalidIntClosedRange(t *testing.T) {
 	_, err := NewIntClosedRange(1, 3)
 	assert.Equal(t, err, expected)
 }
+
+func TestToString(t *testing.T) {
+	expected := [2]string{"2", "4"}
+	intClosedRange, _ := NewIntClosedRange(4, 2)
+	toString := intClosedRange.ToString()
+	assert.Equal(t, toString, expected)
+}
