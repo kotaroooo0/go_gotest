@@ -52,5 +52,8 @@ func (p IntClosedRange) ToString() string {
 }
 
 func (p IntClosedRange) Include(n int) bool {
-	return true
+	if p.upper >= n && p.lower <= n {
+		return true
+	}
+	return false
 }
