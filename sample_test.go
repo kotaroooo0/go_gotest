@@ -1,6 +1,7 @@
 package tddbc
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -21,11 +22,17 @@ func TestSay_testify(t *testing.T) {
 }
 
 // IntClosedRange構造体を新しく生成するための関数のテスト
-func TestNewIntClosedRange(t *testing.T) {
+func TestNewValidIntClosedRange(t *testing.T) {
 	expected := IntClosedRange{
 		upper: 1,
 		lower: 3,
 	}
 	intClosedRange := NewIntClosedRange(1, 3)
-	assert.Equal(t, expected, intClosedRange)
+	assert.Equal(t, intClosedRange, expected)
+}
+
+func TestNewInvalidIntClosedRange(t *testing.T) {
+	expected := errors.New("err: uppper < lower")
+	_, err := NewIntClosedRange(3, 1)
+	assert.Equal(t, err, expected)
 }
