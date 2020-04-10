@@ -2,6 +2,7 @@ package tddbc
 
 import (
 	"errors"
+	"strconv"
 )
 
 func Say(greeting string) string {
@@ -42,6 +43,6 @@ func NewIntClosedRange(upper, lower int) (IntClosedRange, error) {
 	return intClosedRange, nil
 }
 
-func (p IntClosedRange) ToString() [2]string {
-	return [2]string{"-1", "-2"}
+func (p IntClosedRange) ToString() string {
+	return "[" + strconv.Itoa(p.lower) + "," + strconv.Itoa(p.upper) + "]"
 }

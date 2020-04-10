@@ -38,7 +38,7 @@ func TestNewInvalidIntClosedRange(t *testing.T) {
 }
 
 func TestToString(t *testing.T) {
-	expected := [2]string{"2", "4"}
+	expected := "[2,4]"
 	intClosedRange, _ := NewIntClosedRange(4, 2)
 	toString := intClosedRange.ToString()
 	assert.Equal(t, toString, expected)
